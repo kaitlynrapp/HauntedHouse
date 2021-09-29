@@ -16,7 +16,8 @@ public class RunSimulation
 				createRoom.add(new Room("Kitchen", "Doll", 10, true, false));
 				createRoom.add(new Room("Backyard", "ScareCrow", 0, true, true));
 				
-				createCharacter();
+				//createCharacter();
+				startPlaying();
 				
 			}
 		
@@ -70,8 +71,24 @@ public class RunSimulation
 			
 			//scary default = false
 			System.out.println("You aren't scared quite yet. When seomthing scary happens you will see something scary!\n \n ");
-			System.out.println("Alright " + myChar.get(0).getName() + ". Lets get you and " + myChar.get(0).getSideKick() + " started. You slowly get up off the floor and make your way to the door where you will randomly enter into any start room.\n There are dead ends, and you have to complete each challange against the spooky character you are put up against.  ");
+			System.out.println("Alright " + myChar.get(0).getName() + ". Lets get you and " + myChar.get(0).getSideKick() + " started.\n \nYou slowly get up off the floor and make your way to the door where \nyou will randomly enter into any start room. There will be dead ends. \nYou have to complete each challange against the spooky character you are put up against.  ");
+			System.out.println("Ready to begin?");
+			System.out.println("(1) Yes \n(2) No");
+			int userStart = userInput.nextInt(); 
+			if (userStart == 1)
+				{
+					//
+				}
+			else 
+				{
+					//game over
+				}
+		
 		}
 		
+		public static void startPlaying()
+		{
+			
+		}
 		
 	}
