@@ -8,10 +8,8 @@ public class RunSimulation
 		public static void main(String[] args)
 			{
 				myChar.add(new Character("Default", "Mini Vampire", 66, false));
-				createRoom.add(new Room("Spawn Dark Room", "None", 0, false, false));
 				createRoom.add(new Room("Hallway", "Clown", 10, false, false));
 				createRoom.add(new Room("indoorGarden", "Granny", 10, true, false));
-				createRoom.add(new Room("Library", "Skeleton", 10, true, false));
 				createRoom.add(new Room("Basement", "The Nun", 99, true, false));
 				createRoom.add(new Room("Kitchen", "Doll", 10, true, false));
 				createRoom.add(new Room("Backyard", "ScareCrow", 0, true, true));
@@ -89,6 +87,24 @@ public class RunSimulation
 		public static void startPlaying()
 		{
 			
+		}
+		
+		public static void hallway()
+		{
+		Scanner userInput1 = new Scanner(System.in);
+		System.out.println("You leave the room and walk into the hallway. Oh shoot! \nYou are confronted with a clown!!!!");
+		System.out.println("Good thing you aren't scared of clowns.");
+		System.out.println("The clown tells you a joke: WHAT ROOM DO GHOSTS AVOID");
+		String userAnswer = userInput1.nextLine(); 
+		if (userAnswer.equals("The living room."))
+			{
+				System.out.println("Congrats the clown lets you move on.");
+			}
+		else
+			{
+		System.out.println("THE LIVING ROOM! Unfortuantly you loose 10 points in health.");
+		create.get(0).getTitle().setTitle()
+			}
 		}
 		
 	}
