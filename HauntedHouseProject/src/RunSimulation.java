@@ -9,19 +9,26 @@ public class RunSimulation
 			{
 				myChar.add(new Character("Default", "Mini Vampire", 66, false));
 				createRoom.add(new Room("Hallway", "Clown", 10, false, false));
-				createRoom.add(new Room("indoorGarden", "Granny", 10, true, false));
+				createRoom.add(new Room("Indoor Garden", "Granny", 10, true, false));
 				createRoom.add(new Room("Basement", "The Nun", 99, true, false));
 				createRoom.add(new Room("Kitchen", "Doll", 10, true, false));
 				createRoom.add(new Room("Backyard", "ScareCrow", 0, true, true));
 				
 				//createCharacter();
-				startPlaying();
-				
+				//startPlaying();
+				//hallway();
+				//indoorGarden();
+				//Room.scared();
+			}
+		
+		public static void startPlaying()
+			{
+				hallway();
 			}
 		
 		public static void createCharacter()
 		{
-			//set character name and intro
+			//set character name and introduction
 			Scanner userInput = new Scanner(System.in);
 			System.out.println("Oh no! \nYou wake up in a dark room alone in a haunted house.\nNo idea how you got here.");
 			 System.out.println("   _____\\_____");
@@ -69,32 +76,29 @@ public class RunSimulation
 			
 			//scary default = false
 			System.out.println("You aren't scared quite yet. When seomthing scary happens you will see something scary!\n \n ");
-			System.out.println("Alright " + myChar.get(0).getName() + ". Lets get you and " + myChar.get(0).getSideKick() + " started.\n \nYou slowly get up off the floor and make your way to the door where \nyou will randomly enter into any start room. There will be dead ends. \nYou have to complete each challange against the spooky character you are put up against.  ");
+			System.out.println("Alright " + myChar.get(0).getName() + ". Lets get you and " + myChar.get(0).getSideKick() + " started.\n \nYou slowly get up off the floor and make your way to the door where \nyour only goal is to escape the house. \nYou have to complete each challange against the spooky character you are put up against.");
 			System.out.println("Ready to begin?");
 			System.out.println("(1) Yes \n(2) No");
 			int userStart = userInput.nextInt(); 
 			if (userStart == 1)
 				{
-					//
+					startPlaying();
 				}
 			else 
 				{
-					//game over
+					createRoom.get(0).setExit(true);
+					System.out.println("You died and didn't make it out!!");
 				}
 		
 		}
 		
-		public static void startPlaying()
-		{
-			
-		}
 		
 		public static void hallway()
 		{
 		Scanner userInput1 = new Scanner(System.in);
 		System.out.println("You leave the room and walk into the hallway. Oh shoot! \nYou are confronted with a clown!!!!");
 		System.out.println("Good thing you aren't scared of clowns.");
-		System.out.println("The clown tells you a joke: WHAT ROOM DO GHOSTS AVOID");
+		System.out.println("The clown tells you a joke: WHAT ROOM DO GHOSTS AVOID?");
 		String userAnswer = userInput1.nextLine(); 
 		if (userAnswer.equals("The living room."))
 			{
@@ -103,8 +107,34 @@ public class RunSimulation
 		else
 			{
 		System.out.println("THE LIVING ROOM! Unfortuantly you loose 10 points in health.");
-		create.get(0).getTitle().setTitle()
+		myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
+		System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
 			}
-		}
 		
+		if (myChar.get(0).getFavoriteNum() > 0)
+			{
+				if (createRoom.get(0).isExit() == false)
+					{
+						System.out.println("You move onto the next room: " + createRoom.get(1).getNameRoom());
+						indoorGarden();
+					}
+				else
+					{
+						System.out.println("You died and didn't make it out!!");
+					}
+			}
+		else
+				{
+				createRoom.get(0).setExit(true);
+				System.out.println("You died and didn't make it out!!");
+				}
+			}
+		
+		
+		public static void indoorGarden()
+		{
+			
+		}
 	}
+		
+	

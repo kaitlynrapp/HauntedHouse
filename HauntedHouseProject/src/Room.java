@@ -55,4 +55,23 @@ public class Room
 				isScaryRoom = iSR;
 				exit = e;
 			}
+		public static void scared()
+		{
+System.out.println("            .--,");
+System.out.println("           /  (");
+System.out.println("          /    \\");
+System.out.println("         /      \\");
+System.out.println("        /  0  0  \\          BOO!!");
+System.out.println("((()   |    ()    |   ()))");
+System.out.println("\\  ()  (  .____.  )  ()  /");
+System.out.println(" |` \\_/ \\  ` `  / \\_/ `|");
+System.out.println(" |       `.'--'.`       |");
+System.out.println("  \\        `  `        /");
+System.out.println("   \\                  /");
+System.out.println("    `.              .'    ,");
+System.out.println("     |`             |  _.'|");
+System.out.println("     |              `-'  /");
+System.out.println("     \\                 .'");
+System.out.println("     `.____________.-'");
+		}
 	}
