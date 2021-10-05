@@ -9,7 +9,7 @@ public class RunSimulation
 			{
 				myChar.add(new Character("Default", "Mini Vampire", 66, false));
 				createRoom.add(new Room("Hallway", "Clown", 10, false, false));
-				createRoom.add(new Room("Indoor Garden", "Granny", 10, true, false));
+				createRoom.add(new Room("Indoor Garden", "Giant Spider", 10, true, false));
 				createRoom.add(new Room("Basement", "The Nun", 99, true, false));
 				createRoom.add(new Room("Kitchen", "Doll", 10, true, false));
 				createRoom.add(new Room("Backyard", "ScareCrow", 0, true, true));
@@ -17,7 +17,7 @@ public class RunSimulation
 				//createCharacter();
 				//startPlaying();
 				//hallway();
-				//indoorGarden();
+				indoorGarden();
 				//Room.scared();
 			}
 		
@@ -133,7 +133,30 @@ public class RunSimulation
 		
 		public static void indoorGarden()
 		{
-			System.out.println("Welcome to the indoorgarden.");
+			Scanner userInput2 = new Scanner(System.in);
+			System.out.println("You open a door at the end of the hallway and you you look up to glass \ncielings and a creepy dark indoor garden.");
+			System.out.println("Ahhh! A Giant Spider drops from the cieling and scares you! \nPress enter.");
+			String userScaredNow = userInput2.nextLine(); 
+			Room.scared();
+			if (myChar.get(0).getSideKick().equals("Dracula"))
+				{
+					System.out.println("Luckily you chose " + myChar.get(0).getSideKick() + " the mini vampire as a sidekick. \nHe sneaks up behind him and bites the spider to kill him. Phew.");
+					System.out.println("Your health is still: " + myChar.get(0).getFavoriteNum());
+				}
+			else if (myChar.get(0).getSideKick().equals("Ed"))
+				{
+					System.out.println("Unfortunatley you chose " + myChar.get(0).getSideKick() + " as a sidekick. He is useless against the spider. You get attacked and loose 10 points in health.");
+				}
+			else if (myChar.get(0).getSideKick().equals("Casper"))
+				{
+					System.out.println("Hi");
+				}
+			else if (myChar.get(0).getSideKick().equals("Stephen"))
+				{
+					System.out.println("Luckily you chose " + myChar.get(0).getSideKick() + " the bat as a sidekick. \nHe flies around and flusters the spider. Now the spider is wrapped in its own web and can't get to you.\nPhew.");
+					System.out.println("Your health is still: " + myChar.get(0).getFavoriteNum());
+				}
+						
 		}
 	}
 		
