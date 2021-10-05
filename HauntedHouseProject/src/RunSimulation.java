@@ -133,7 +133,7 @@ public class RunSimulation
 		
 		public static void indoorGarden()
 		{
-			
+			System.out.println("Welcome to the indoorgarden.");
 		}
 	}
 		
