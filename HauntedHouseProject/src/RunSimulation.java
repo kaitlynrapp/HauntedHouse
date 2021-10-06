@@ -149,7 +149,7 @@ public class RunSimulation
 				}
 			else if (myChar.get(0).getSideKick().equals("Casper"))
 				{
-					System.out.println("Hi");
+					System.out.println("Hi casper is too friendly");
 				}
 			else if (myChar.get(0).getSideKick().equals("Stephen"))
 				{
