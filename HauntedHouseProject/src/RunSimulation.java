@@ -11,14 +11,14 @@ public class RunSimulation
 				createRoom.add(new Room("Hallway", "Clown", 10, false, false));
 				createRoom.add(new Room("Indoor Garden", "Giant Spider", 10, true, false));
 				createRoom.add(new Room("Basement", "The Nun", 99, true, false));
-				createRoom.add(new Room("Kitchen", "Doll", 10, true, false));
-				createRoom.add(new Room("Backyard", "ScareCrow", 0, true, true));
+				createRoom.add(new Room("Backyard", "Doll", 10, true, true));
 				
-				//createCharacter();
+				createCharacter();
 				//startPlaying();
 				//hallway();
-				indoorGarden();
+				//indoorGarden();
 				//Room.scared();
+				//backyard();
 			}
 		
 		public static void startPlaying()
@@ -100,9 +100,9 @@ public class RunSimulation
 		System.out.println("Good thing you aren't scared of clowns.");
 		System.out.println("The clown tells you a joke: WHAT ROOM DO GHOSTS AVOID?");
 		String userAnswer = userInput1.nextLine(); 
-		if (userAnswer.equals("The living room."))
+		if (userAnswer.equals("THE LIVING ROOM"))
 			{
-				System.out.println("Congrats the clown lets you move on.");
+				System.out.println("Congrats the clown lets you move on.\n");
 			}
 		else
 			{
@@ -146,17 +146,121 @@ public class RunSimulation
 			else if (myChar.get(0).getSideKick().equals("Ed"))
 				{
 					System.out.println("Unfortunatley you chose " + myChar.get(0).getSideKick() + " as a sidekick. He is useless against the spider. You get attacked and loose 10 points in health.");
+					myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
+					System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
 				}
 			else if (myChar.get(0).getSideKick().equals("Casper"))
 				{
-					System.out.println("Hi casper is too friendly");
+					System.out.println("Unfortunatley you chose " + myChar.get(0).getSideKick() + " as a sidekick. He is too friendly and useless against the spider.");
+					myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
+					System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
 				}
 			else if (myChar.get(0).getSideKick().equals("Stephen"))
 				{
 					System.out.println("Luckily you chose " + myChar.get(0).getSideKick() + " the bat as a sidekick. \nHe flies around and flusters the spider. Now the spider is wrapped in its own web and can't get to you.\nPhew.");
 					System.out.println("Your health is still: " + myChar.get(0).getFavoriteNum());
 				}
-						
+			
+			if (myChar.get(0).getFavoriteNum() > 0)
+				{
+					if (createRoom.get(1).isExit() == false)
+						{
+							System.out.println("\nYou move onto the next room: " + createRoom.get(2).getNameRoom());
+							basement();
+						}
+					else
+						{
+							System.out.println("You died and didn't make it out!!");
+						}
+				}
+			else
+					{
+					createRoom.get(0).setExit(true);
+					System.out.println("You died and didn't make it out!!");
+					}				
+		}
+		
+		public static void basement()
+		{
+			Scanner userInput3 = new Scanner(System.in);
+			System.out.println("You accidently took a door and fell down the stairs. As you get up, you see in the dark corner a nun. \n ");
+			System.out.println("Oh no, the nun is very scary!! \nPress enter.");
+			String userScaredAgain = userInput3.nextLine(); 
+			Room.scared();	
+			System.out.println("There is a bat on the ground in front of you. You pick it up. \nWould you like to swing (1) left or (2) right at the nun?");
+			int userSwing = userInput3.nextInt(); 
+			if (userSwing == 1)
+				{
+					System.out.println("You chose wrong. The nun dodges you and knocks you out losing 99 health!");
+					myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-99);
+					System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
+				}
+				
+			else if (userSwing == 2)
+				{
+					System.out.println("Good job you knocked out the nun! You escape and run out of the basement.");
+					System.out.println("Your health is still: " + myChar.get(0).getFavoriteNum());
+				}
+			else
+				{
+					System.out.println("That is not an option");
+				}
+			if (myChar.get(0).getFavoriteNum() > 0)
+				{
+					if (createRoom.get(2).isExit() == false)
+						{
+							System.out.println("You move onto the next room: " + createRoom.get(3).getNameRoom());
+							backyard();
+						}
+					else
+						{
+							System.out.println("You died and didn't make it out!!");
+						}
+				}
+			else
+					{
+					createRoom.get(0).setExit(true);
+					System.out.println("You died and didn't make it out!!");
+					}		
+			
+		}
+		
+		public static void backyard()
+		{
+			Scanner userInput4 = new Scanner(System.in);
+			System.out.println("You found the door to the backyard. Oh no, there is a doll sitting on the swing. ");
+			System.out.println("You grew up playing with dolls so you arent scared this time. \nLets play some hide and seek. \nChoose to hide behind: \n(1) statue \n(2) cornstalk \n(3) scarecrow");
+			int userHidingSpot = userInput4.nextInt(); 
+			
+			if(userHidingSpot == 1)
+				{
+					System.out.println("You passed the nun.");
+				}
+			else if(userHidingSpot == 2)
+				{
+					System.out.println("You chose wrong. The doll sees you clearly behind the cornstalk and attacks you! You loose 10 health.");
+					myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
+					System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
+				}
+			else if(userHidingSpot == 3)
+				{
+					System.out.println("You chose wrong. The doll went over to the scarecrow thinking it was her friend and attacks you. You loose 10 health.");
+					myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
+					System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
+				}
+			else
+				{
+					System.out.println("That isn't an option.");
+				}
+			if (myChar.get(0).getFavoriteNum() > 0)
+				{
+					System.out.println("Well done you escaped the haunted house " + myChar.get(0).getName() + ". You and " + myChar.get(0).getSideKick() + " finished with " + myChar.get(0).getFavoriteNum() + " health. I' ll see you next time player..." );
+				}
+			else
+					{
+					createRoom.get(0).setExit(true);
+					System.out.println("You died and didn't make it out!!");
+					}
 		}
 	}
 		
