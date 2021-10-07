@@ -95,6 +95,7 @@ public class RunSimulation
 		
 		public static void hallway()
 		{
+			//hallway challenge
 		Scanner userInput1 = new Scanner(System.in);
 		System.out.println("You leave the room and walk into the hallway. Oh shoot! \nYou are confronted with a clown!!!!");
 		System.out.println("Good thing you aren't scared of clowns.");
