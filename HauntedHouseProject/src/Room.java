@@ -74,4 +74,59 @@ System.out.println("     |              `-'  /");
 System.out.println("     \\                 .'");
 System.out.println("     `.____________.-'");
 		}
+		
+		public static void stephen()
+		{
+System.out.println("            \\--/");
+System.out.println("         /`-'  '-`\\");
+System.out.println("        /          \\");
+System.out.println("       /.'|/\\  /\\|'.\\");
+System.out.println("             \\/");
+		}
+		
+		public static void casper()
+		{
+System.out.println("	 .-.");
+System.out.println("	(o o) ");
+System.out.println("	| O \\");
+System.out.println("	 \\   \\");
+System.out.println("	  `~~~'");
+		}
+		
+		public static void dracula()
+		{
+		System.out.println("	(㇏(•̀ᵥᵥ•́)ノ)");
+		}
+		
+		public static void edCharacter()
+		{
+System.out.println("            ..... ");           
+System.out.println("           C C  / ");           
+System.out.println("          /<   /  ");           
+System.out.println(" ___ __________/_#__=o ");            
+System.out.println("/(- /(\\_\\________   \\  ");            
+System.out.println("\\ ) \\ )_      \\o     \\ ");            
+System.out.println("/|\\ /|\\       |'     | ");            
+System.out.println("        |     _|      ");       
+System.out.println("        /o   __\\       ");      
+System.out.println("       / '     |        ");     
+System.out.println("     / /      |       ");      
+System.out.println("     /_/\\______|      ");       
+System.out.println("    (   _(    <          ");    
+System.out.println("     \\    \\    \\            "); 
+System.out.println("      \\    \\    |            ");
+System.out.println("       \\____\\____\\           ");
+System.out.println("       ____\\_\\__\\_\\          ");
+System.out.println("     /`   /`     o\\          ");
+System.out.println("     |___ |_______|	");
+		}
+		public static void intro()
+		{
+			 System.out.println("   _____\\_____");
+			 System.out.println("  |'  __   __ `| ");
+			 System.out.println(" |   ( o` 'o )  |");
+			 System.out.println(" |  .----_----, |");
+			 System.out.println("  |  `-------' |");
+			 System.out.println("   `----------'");
+		}
 	}

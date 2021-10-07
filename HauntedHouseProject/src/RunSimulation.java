@@ -31,12 +31,7 @@ public class RunSimulation
 			//set character name and introduction
 			Scanner userInput = new Scanner(System.in);
 			System.out.println("Oh no! \nYou wake up in a dark room alone in a haunted house.\nNo idea how you got here.");
-			 System.out.println("   _____\\_____");
-			 System.out.println("  |'  __   __ ` | ");
-			 System.out.println(" |   ( o` 'o )   |");
-			 System.out.println(" |  .----_----,  |");
-			 System.out.println("  |  `-------'  |");
-			 System.out.println("   `----------'");
+			Room.intro();
 			System.out.println("Before you can try and get out- Give me your Character Name.");
 			String userCharacter = userInput.nextLine(); 
 			myChar.get(0).setName(userCharacter);
@@ -49,18 +44,22 @@ public class RunSimulation
 			if (userPower.equals("Dracula"))
 				{
 					System.out.println("You choose the Mini Vampire: Dracula.");
+					Room.dracula();
 				}
 			else if (userPower.equals("Casper"))
 				{
 					System.out.println("You choose the Mini Ghost: Casper.");
+					Room.casper();
 				}
 			else if (userPower.equals("Stephen"))
 				{
 					System.out.println("You choose the Bat: Stephen.");
+					Room.stephen();
 				}
 			else if (userPower.equals("Ed"))
 				{
 					System.out.println("You choose the Mini Zombie: Ed");
+					Room.edCharacter();
 				}
 			else
 				{
@@ -68,14 +67,14 @@ public class RunSimulation
 				}
 			
 			//set user health using favorite number
-			System.out.println("Tell me your favorite number between 1-100. I'll tell you what its for after.");
+			System.out.println("Tell me your favorite number between 1-50. I'll tell you what its for after.");
 			int userHealth = userInput.nextInt(); 
 			myChar.get(0).setFavoriteNum(userHealth);
 			
 			System.out.println("You have " + userHealth + " health starting off trying to escape the house. Good Luck!");
 			
 			//scary default = false
-			System.out.println("You aren't scared quite yet. When seomthing scary happens you will see something scary!\n \n ");
+			System.out.println("You aren't scared quite yet. When something scary happens you will see something scary!\n \n ");
 			System.out.println("Alright " + myChar.get(0).getName() + ". Lets get you and " + myChar.get(0).getSideKick() + " started.\n \nYou slowly get up off the floor and make your way to the door where \nyour only goal is to escape the house. \nYou have to complete each challange against the spooky character you are put up against.");
 			System.out.println("Ready to begin?");
 			System.out.println("(1) Yes \n(2) No");
@@ -111,7 +110,7 @@ public class RunSimulation
 		myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
 		System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
 			}
-		
+		//check if move on
 		if (myChar.get(0).getFavoriteNum() > 0)
 			{
 				if (createRoom.get(0).isExit() == false)
@@ -135,33 +134,37 @@ public class RunSimulation
 		public static void indoorGarden()
 		{
 			Scanner userInput2 = new Scanner(System.in);
-			System.out.println("You open a door at the end of the hallway and you you look up to glass \ncielings and a creepy dark indoor garden.");
+			System.out.println("You open a door at the end of the hallway and you look up to glass \ncielings. You are in a creepy dark indoor garden.");
 			System.out.println("Ahhh! A Giant Spider drops from the cieling and scares you! \nPress enter.");
 			String userScaredNow = userInput2.nextLine(); 
 			Room.scared();
 			if (myChar.get(0).getSideKick().equals("Dracula"))
 				{
 					System.out.println("Luckily you chose " + myChar.get(0).getSideKick() + " the mini vampire as a sidekick. \nHe sneaks up behind him and bites the spider to kill him. Phew.");
+					Room.dracula();
 					System.out.println("Your health is still: " + myChar.get(0).getFavoriteNum());
 				}
 			else if (myChar.get(0).getSideKick().equals("Ed"))
 				{
 					System.out.println("Unfortunatley you chose " + myChar.get(0).getSideKick() + " as a sidekick. He is useless against the spider. You get attacked and loose 10 points in health.");
+					Room.edCharacter();
 					myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
 					System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
 				}
 			else if (myChar.get(0).getSideKick().equals("Casper"))
 				{
 					System.out.println("Unfortunatley you chose " + myChar.get(0).getSideKick() + " as a sidekick. He is too friendly and useless against the spider.");
+					Room.casper();
 					myChar.get(0).setFavoriteNum(myChar.get(0).getFavoriteNum()-10);
 					System.out.println("Your health is now: " + myChar.get(0).getFavoriteNum());
 				}
 			else if (myChar.get(0).getSideKick().equals("Stephen"))
 				{
 					System.out.println("Luckily you chose " + myChar.get(0).getSideKick() + " the bat as a sidekick. \nHe flies around and flusters the spider. Now the spider is wrapped in its own web and can't get to you.\nPhew.");
+					Room.stephen();
 					System.out.println("Your health is still: " + myChar.get(0).getFavoriteNum());
 				}
-			
+			//check if move on
 			if (myChar.get(0).getFavoriteNum() > 0)
 				{
 					if (createRoom.get(1).isExit() == false)
@@ -206,6 +209,7 @@ public class RunSimulation
 				{
 					System.out.println("That is not an option");
 				}
+			//check if move on
 			if (myChar.get(0).getFavoriteNum() > 0)
 				{
 					if (createRoom.get(2).isExit() == false)
@@ -253,9 +257,10 @@ public class RunSimulation
 				{
 					System.out.println("That isn't an option.");
 				}
+			//check if finish
 			if (myChar.get(0).getFavoriteNum() > 0)
 				{
-					System.out.println("Well done you escaped the haunted house " + myChar.get(0).getName() + ". You and " + myChar.get(0).getSideKick() + " finished with " + myChar.get(0).getFavoriteNum() + " health. I' ll see you next time player..." );
+					System.out.println("Well done you escaped the haunted house " + myChar.get(0).getName() + ". You and " + myChar.get(0).getSideKick() + " finished with " + myChar.get(0).getFavoriteNum() + " health. I'll see you next time player..." );
 				}
 			else
 					{
