@@ -104,6 +104,10 @@ public class RunSimulation
 			{
 				System.out.println("Congrats the clown lets you move on.\n");
 			}
+		else if (userAnswer.equals("the living room"))
+		{
+			System.out.println("Congrats the clown lets you move on.\n");
+		}
 		else
 			{
 		System.out.println("THE LIVING ROOM! Unfortuantly you loose 10 points in health.");
