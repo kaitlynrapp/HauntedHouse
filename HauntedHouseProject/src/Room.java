@@ -95,7 +95,11 @@ System.out.println("	  `~~~'");
 		
 		public static void dracula()
 		{
-		System.out.println("	(㇏(•̀ᵥᵥ•́)ノ)");
+			System.out.println("            \\---/");
+			System.out.println("         /`-'o  o'-`\\");
+			System.out.println("        /     vv    \\");
+			System.out.println("       /.'|/\\   /\\|'.\\");
+			System.out.println("             \\ /");
 		}
 		
 		public static void edCharacter()
